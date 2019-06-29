@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ug7-Fj-s12">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ug7-Fj-s12">
                                 <rect key="frame" x="0.0" y="117" width="414" height="598"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKQ-5L-WwP">
@@ -84,11 +83,15 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="ug7-Fj-s12" firstAttribute="leading" secondItem="fKQ-5L-WwP" secondAttribute="leading" id="Iri-dD-IdB"/>
+                            <constraint firstItem="ug7-Fj-s12" firstAttribute="top" secondItem="QYm-vx-ZEL" secondAttribute="bottom" constant="8" symbolic="YES" id="XSd-W6-m6Z"/>
                             <constraint firstItem="fKQ-5L-WwP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XUE-Gw-hjw"/>
                             <constraint firstItem="QYm-vx-ZEL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="XyG-B4-Ugi"/>
                             <constraint firstItem="QYm-vx-ZEL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="amI-ud-Aha"/>
                             <constraint firstAttribute="bottom" secondItem="fKQ-5L-WwP" secondAttribute="bottom" id="jc7-i9-h8Z"/>
                             <constraint firstItem="fKQ-5L-WwP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oo3-Ma-ll5"/>
+                            <constraint firstItem="ug7-Fj-s12" firstAttribute="trailing" secondItem="fKQ-5L-WwP" secondAttribute="trailing" id="wpS-1H-405"/>
+                            <constraint firstItem="fKQ-5L-WwP" firstAttribute="top" secondItem="ug7-Fj-s12" secondAttribute="bottom" constant="8" symbolic="YES" id="yj7-A6-L3D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
