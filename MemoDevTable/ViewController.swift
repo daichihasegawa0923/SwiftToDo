@@ -64,6 +64,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        _data?.remove(at: indexPath.row)
+        self._tableView?.reloadData()
+    }
+    
     @IBAction func pushButton(){
         
         let todo = Todo.init(content: _textView!.text, date: Date())
@@ -78,6 +83,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self._tableView?.reloadData()
         // tableの編集を完了
         _tableView?.endUpdates();
+    }
+    
+    @IBAction func pushEditButton(){
+        if(_tableView!.isEditing){
+            _tableView?.setEditing(false, animated: true)
+            _editButton?.setTitle("Edit", for: UIControl.State.normal)
+            print("Edit実行ずみ")
+        }else{
+            _tableView?.setEditing(true, animated: true)
+            _editButton?.setTitle("Done", for: UIControl.State.normal)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
