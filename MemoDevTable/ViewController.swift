@@ -80,6 +80,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         _tableView?.endUpdates();
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        _textView?.endEditing(true)
+    }
 }
 
 public class Todo{
