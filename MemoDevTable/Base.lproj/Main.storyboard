@@ -21,7 +21,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ug7-Fj-s12">
                                 <rect key="frame" x="0.0" y="117" width="414" height="598"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKQ-5L-WwP">
                                 <rect key="frame" x="0.0" y="723" width="414" height="173"/>
@@ -59,7 +59,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="PzB-Jv-REm" secondAttribute="bottom" constant="19" id="Jcw-J3-DGl"/>
                                     <constraint firstItem="8Sc-jL-T0A" firstAttribute="top" secondItem="fKQ-5L-WwP" secondAttribute="top" constant="21" id="WSJ-Um-lB4"/>
@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="fKQ-5L-WwP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XUE-Gw-hjw"/>
                             <constraint firstItem="QYm-vx-ZEL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="XyG-B4-Ugi"/>

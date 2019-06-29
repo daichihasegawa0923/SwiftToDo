@@ -50,16 +50,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     // tableviewで必要なメソッド②
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        
         cell.textLabel?.frame.origin.y = 20
         cell.textLabel?.text = _data![indexPath.row].content
-        cell.backgroundColor = #colorLiteral(red: 0.978754053, green: 1, blue: 0.7671488737, alpha: 1)
+        cell.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 0)
+        cell.textLabel?.textColor = #colorLiteral(red: 0, green: 1, blue: 0.9659098585, alpha: 1)
         let date = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: cell.bounds.height))
         cell.layer.borderWidth = 0.5
-        cell.layer.borderColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        cell.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0.7773296926, alpha: 1)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         date.text = formatter.string(from:  _data![indexPath.row].date!)
+        date.textColor = #colorLiteral(red: 0.2358011974, green: 1, blue: 0, alpha: 1)
         cell.addSubview(date)
         return cell
     }
