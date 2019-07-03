@@ -34,7 +34,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         // ボタンのデザイン
         _button?.backgroundColor = #colorLiteral(red: 0.3970779445, green: 0.9150340026, blue: 0.8999217573, alpha: 1)
-        _button?.layer.cornerRadius = 12
+        _button?.layer.masksToBounds = true
+        _button?.layer.cornerRadius = (_button?.bounds.height)!/2
         _button?.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: UIControl.State.normal)
         
         // テーブルビューのデザイン
@@ -70,9 +71,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self._tableView?.reloadData()
     }
     
-    @IBAction func pushButton(){
-        
-        let todo = Todo.init(content: _textView!.text, date: Date())
+    @IBAction func pushWriteButton(){
+        self.performSegue(withIdentifier: "to_write", sender: nil);
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSegueViewController" {
+            let nextVC = segue.destination as! WriteScene
+            nextVC._presentView = self
+        }
+    }
+    
+    public func addData(todo: Todo){
         // tableのデータに追加
         _data?.insert(todo, at: 0)
         //tableの編集を開始
