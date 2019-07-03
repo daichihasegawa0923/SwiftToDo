@@ -26,12 +26,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view.
     }
     
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func designDefine(){
-        // 入力するところのデザイン
-        _textView?.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        _textView?.layer.borderWidth = 0.3
-        _textView?.layer.cornerRadius = 12
-        
         // ボタンのデザイン
         _button?.backgroundColor = #colorLiteral(red: 0.3970779445, green: 0.9150340026, blue: 0.8999217573, alpha: 1)
         _button?.layer.masksToBounds = true
@@ -40,7 +39,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         // テーブルビューのデザイン
         _tableView?.separatorStyle = .none
-        _tableView?.rowHeight = 100
+        _tableView?.estimatedRowHeight = 100;
     }
     
     // tableviewで必要なメソッド①
@@ -52,16 +51,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         cell.textLabel?.frame.origin.y = 20
-        cell.textLabel?.text = _data![indexPath.row].content
+        
+        //行数を合わせる
+        let textArray = _data![indexPath.row].content?.split(separator: "\n")
+        cell.textLabel?.numberOfLines = textArray!.count + 2
+        
+        cell.textLabel?.text = "\n\n" + _data![indexPath.row].content!
         cell.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 0)
-        cell.textLabel?.textColor = #colorLiteral(red: 0, green: 1, blue: 0.9659098585, alpha: 1)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.2990001619, green: 0.2990001619, blue: 0.2990001619, alpha: 1)
         let date = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: cell.bounds.height))
         cell.layer.borderWidth = 0.5
-        cell.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0.7773296926, alpha: 1)
+        cell.layer.borderColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         date.text = formatter.string(from:  _data![indexPath.row].date!)
-        date.textColor = #colorLiteral(red: 0.2358011974, green: 1, blue: 0, alpha: 1)
+        date.textColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
         cell.addSubview(date)
         return cell
     }
@@ -76,7 +80,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSegueViewController" {
+        if segue.identifier == "to_write" {
             let nextVC = segue.destination as! WriteScene
             nextVC._presentView = self
         }

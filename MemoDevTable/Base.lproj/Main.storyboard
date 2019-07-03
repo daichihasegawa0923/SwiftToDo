@@ -20,13 +20,13 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ug7-Fj-s12">
                                 <rect key="frame" x="0.0" y="117" width="414" height="745"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sc-jL-T0A">
-                                <rect key="frame" x="282" y="703" width="118" height="118"/>
+                                <rect key="frame" x="320" y="741" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="118" id="MkF-Na-1e0"/>
-                                    <constraint firstAttribute="height" constant="118" id="aKm-wf-1OT"/>
+                                    <constraint firstAttribute="height" constant="80" id="Gd8-qm-gVN"/>
+                                    <constraint firstAttribute="width" constant="80" id="jgB-0v-ZHr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="追加"/>
@@ -46,15 +46,15 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Sc-jL-T0A" secondAttribute="bottom" constant="41" id="Jnk-xv-1Ij"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Sc-jL-T0A" secondAttribute="trailing" constant="14" id="EJi-ZH-9uz"/>
                             <constraint firstItem="ug7-Fj-s12" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KKW-PT-rB7"/>
                             <constraint firstItem="ug7-Fj-s12" firstAttribute="top" secondItem="QYm-vx-ZEL" secondAttribute="bottom" constant="8" symbolic="YES" id="OVn-Eb-Eru"/>
                             <constraint firstAttribute="trailing" secondItem="ug7-Fj-s12" secondAttribute="trailing" id="RLc-Wz-NrB"/>
                             <constraint firstItem="QYm-vx-ZEL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="XyG-B4-Ugi"/>
                             <constraint firstItem="QYm-vx-ZEL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="amI-ud-Aha"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Sc-jL-T0A" secondAttribute="trailing" constant="14" id="tKA-IC-eAp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Sc-jL-T0A" secondAttribute="bottom" constant="41" id="coF-hS-hgk"/>
                             <constraint firstItem="ug7-Fj-s12" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tp5-aJ-UGU"/>
                             <constraint firstItem="ug7-Fj-s12" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xud-Ao-5Kc"/>
                         </constraints>
@@ -93,7 +93,7 @@
                                     <constraint firstAttribute="width" constant="65" id="Qn6-td-J32"/>
                                     <constraint firstAttribute="height" constant="65" id="kJN-GG-aYi"/>
                                 </constraints>
-                                <state key="normal" title="Canel"/>
+                                <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="Cancel" destination="kns-Qr-0dE" eventType="touchDown" id="78K-Wd-AHv"/>
                                 </connections>

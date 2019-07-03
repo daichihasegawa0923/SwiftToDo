@@ -14,6 +14,17 @@ class WriteScene:UIViewController{
     @IBOutlet weak var _textView:UITextView?
     var _presentView:ViewController?
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        designDefine()
+    }
+    
+    func designDefine(){
+        _textView?.layer.borderWidth = 1
+        _textView?.layer.borderColor = #colorLiteral(red: 0.2990001619, green: 0.2990001619, blue: 0.2990001619, alpha: 1)
+    }
+    
     public func setPresentView(presentView:ViewController){
         self._presentView? = presentView
     }
@@ -29,9 +40,5 @@ class WriteScene:UIViewController{
     
     @IBAction func Cancel(){
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }
