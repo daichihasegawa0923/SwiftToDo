@@ -126,9 +126,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     dataFormatter.calendar = Calendar(identifier: Calendar.Identifier.gregorian)
                     dataFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     
+                    let nContent = canmaArray[0].replacingOccurrences(of: "(newLine)", with: "\n")
                     let nDate:Date = dataFormatter.date(from: canmaArray[1])!
                     
-                    let nTodo = Todo.init(content: canmaArray[0], date: nDate)
+                    let nTodo = Todo.init(content: nContent, date: nDate)
                     self._data?.append(nTodo)
                     
                 })
@@ -146,7 +147,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             for i in 0 ..< _data!.count{
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                dataset += _data![i].content! + "," + formatter.string(from:  _data![i].date!) + "\n"
+                
+                let nContent = _data![i].content!.replacingOccurrences(of: "\n", with: "(newLine)")
+                
+                dataset += nContent + "," + formatter.string(from:  _data![i].date!) + "\n"
             }
             try dataset.write(toFile: folderPath+fileName, atomically: true, encoding: String.Encoding.utf8)
         }catch _ as NSError{
