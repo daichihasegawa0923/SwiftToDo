@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
-    // UI
-    @IBOutlet weak var _textView : UITextView?
     @IBOutlet weak var _button : UIButton?
     @IBOutlet weak var _tableView : UITableView?
     @IBOutlet weak var _editButton:UIButton?
@@ -22,7 +20,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self._tableView?.dataSource = (self as UITableViewDataSource)
-        designDefine()
+        self.designDefine()
+        self.makeCsv()
         // Do any additional setup after loading the view.
     }
     
@@ -111,8 +110,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        _textView?.endEditing(true)
+    func makeCsv(){
+        let filePath = NSHomeDirectory()+"/Documents/todo.csv"
+        print(filePath)
+        let str:String = "あ"
+        do{
+            try str.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+        }catch let error as NSError{
+            print("エラー発生")
+        }
     }
 }
 
