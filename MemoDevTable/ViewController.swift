@@ -14,6 +14,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var _tableView : UITableView?
     @IBOutlet weak var _editButton:UIButton?
     
+    let folderPath:String =  NSHomeDirectory()+"/Documents/devmemo/"
+    let fileName:String = "todo.csv"
+    
     var _todo:Todo? = Todo.init(content: "a", date: Date())
     var _data :[Todo]? = []
     
@@ -21,7 +24,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         self._tableView?.dataSource = (self as UITableViewDataSource)
         self.designDefine()
-        self.makeCsv()
+        //self.makeCsv()
         // Do any additional setup after loading the view.
     }
     
@@ -97,6 +100,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self._tableView?.reloadData()
         // tableの編集を完了
         _tableView?.endUpdates();
+        self.saveTodo()
     }
     
     @IBAction func pushEditButton(){
@@ -110,13 +114,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
+    func saveTodo(){
+        do{
+            let fileManager = FileManager.default
+            try fileManager.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
+            var dataset:String = ""
+            for i in 0 ..< _data!.count{
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                dataset += _data![i].content! + "," + formatter.string(from:  _data![i].date!) + "\n"
+            }
+            try dataset.write(toFile: folderPath+fileName, atomically: true, encoding: String.Encoding.utf8)
+        }catch _ as NSError{
+            print("保存できませんでした。")
+        }
+    }
+    
     func makeCsv(){
-        let filePath = NSHomeDirectory()+"/Documents/todo.csv"
+        let filePath = NSHomeDirectory()+"/Documents/devmemo/"
+        let fileName = "todo.csv"
+        
         print(filePath)
         let str:String = "あ"
         do{
-            try str.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
-        }catch let error as NSError{
+            let fileManager = FileManager.default
+            try fileManager.createDirectory(atPath: filePath, withIntermediateDirectories: true, attributes: nil)
+            try str.write(toFile: filePath + fileName, atomically: true, encoding: String.Encoding.utf8)
+        }catch _ as NSError{
             print("エラー発生")
         }
     }
