@@ -22,6 +22,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadTodo()
         self._tableView?.dataSource = (self as UITableViewDataSource)
         self.designDefine()
         //self.makeCsv()
@@ -111,6 +112,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }else{
             _tableView?.setEditing(true, animated: true)
             _editButton?.setTitle("Done", for: UIControl.State.normal)
+        }
+    }
+    
+    func loadTodo(){
+        do{
+            let loadPath = self.folderPath + self.fileName
+            if let csvData:String = try String(contentsOfFile:loadPath, encoding: String.Encoding.utf8){
+                csvData.enumerateLines(invoking: {(line,stop) -> () in
+                    let canmaArray = line.components(separatedBy: ",")
+                    
+                    let dataFormatter:DateFormatter = DateFormatter()
+                    dataFormatter.calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+                    dataFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    
+                    let nDate:Date = dataFormatter.date(from: canmaArray[1])!
+                    
+                    let nTodo = Todo.init(content: canmaArray[0], date: nDate)
+                    self._data?.append(nTodo)
+                    
+                })
+            }
+        }catch{
+            print("csvファイルを読み込めませんでした。")
         }
     }
     
