@@ -69,7 +69,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         date.text = formatter.string(from:  _data![indexPath.row].date!)
         date.textColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
-        cell.addSubview(date)
+        cell.textLabel?.addSubview(date)
         return cell
     }
     
@@ -153,6 +153,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 dataset += nContent + "," + formatter.string(from:  _data![i].date!) + "\n"
             }
             try dataset.write(toFile: folderPath+fileName, atomically: true, encoding: String.Encoding.utf8)
+            print(folderPath + fileName)
         }catch _ as NSError{
             print("保存できませんでした。")
         }

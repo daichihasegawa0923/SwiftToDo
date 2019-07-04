@@ -22,14 +22,13 @@
                                 <rect key="frame" x="0.0" y="117" width="414" height="745"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sc-jL-T0A">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sc-jL-T0A">
                                 <rect key="frame" x="320" y="741" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Gd8-qm-gVN"/>
                                     <constraint firstAttribute="width" constant="80" id="jgB-0v-ZHr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="追加"/>
+                                <state key="normal" backgroundImage="plus.png"/>
                                 <connections>
                                     <action selector="pushWriteButton" destination="BYZ-38-t0r" eventType="touchDown" id="Epr-xc-IaB"/>
                                     <segue destination="kns-Qr-0dE" kind="show" identifier="to_write" id="DmD-O1-n2w"/>
@@ -134,6 +133,7 @@
                         <viewLayoutGuide key="safeArea" id="a5R-xQ-c12"/>
                     </view>
                     <connections>
+                        <outlet property="_addButton" destination="WSp-pL-eOW" id="lL8-Uy-czu"/>
                         <outlet property="_textView" destination="sIs-mu-tyh" id="tRs-Y5-4hD"/>
                     </connections>
                 </viewController>
@@ -142,4 +142,7 @@
             <point key="canvasLocation" x="869.56521739130437" y="99.776785714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.png" width="30.719999313354492" height="30.719999313354492"/>
+    </resources>
 </document>
